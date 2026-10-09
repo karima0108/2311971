@@ -1,93 +1,129 @@
-Product Requirements Document (PRD)
+# Product Requirements Document (PRD)
 
-1. Project Information
-   
- Project Name: 2311971-Quiz-Game
- Document: Product Requirements Document
- Version: 1.0
- Status: Draft
- Repository: https://github.com/karima0108/2311971-Quiz-Game
+## 1. Project Information
 
-3. Product Overview
-   
-Quiz Game is a web application that allows students to attempt online multiple-choice quizzes and view their scores. Teachers can create and manage quizzes, while administrators can manage user accounts and assign roles.
-The frontend will use React.js with TypeScript, and the backend will use FastAPI with Python. REST APIs will connect the frontend and backend.
+* **Project Name:** Quiz Game
+* **Document:** Product Requirements Document
+* **Version:** 1.0
+* **Status:** Draft
 
-3. Problem Statement
+## 2. Product Overview
 
-Students need a simple way to attempt quizzes and review their results. Teachers need a platform to create questions and publish quizzes. Administrators need to manage accounts and control access.
-Quiz Game will provide these functions through one secure web application.
+Quiz Game is a secure web-based quiz platform where students can attempt quizzes and view their scores. Teachers can create and manage quizzes, while administrators can manage users and assign roles.
 
-4. Objectives
-   
-  * Implement secure registration and login.
-  * Allow students to attempt published quizzes.
-  * Calculate quiz scores automatically.
-  * Allow teachers to create and manage their own quizzes.
-  * Allow administrators to manage accounts and assign roles.
-  * Demonstrate REST APIs, authentication, authorization, RBAC, and security scopes.
+The application will be developed using React.js with TypeScript for the frontend and FastAPI with Python for the backend. REST APIs will connect the frontend and backend.
 
-6. Target Users
+## 3. Problem Statement
 
-Student: Can view published quizzes, submit answers, and view personal results.
+Students need a simple platform to take online quizzes and check their results. Teachers need a convenient way to create quizzes and manage questions. Administrators need control over user accounts and access permissions.
 
-Teacher: Can create quizzes, manage questions, publish quizzes, and view results for their own quizzes.
+Quiz Game aims to provide these features in one secure and easy-to-use application.
 
-Admin: Can manage user accounts, activate or deactivate accounts, and assign roles.
+## 4. Project Objectives
 
-6. Functional Scope
-   
-Authentication:
-  * Register and log in.
-  * Store passwords as secure hashes.
-  * Issue and validate authentication tokens.
-  * Reject invalid or expired tokens.
-  
-Quiz Management:
-  * Create quizzes with a title and description.
-  * Add multiple-choice questions and options.
-  * Edit and delete owned quizzes.
-  * Publish or unpublish owned quizzes.
-  
-Quiz Participation:
-  * View published quizzes.
-  * Submit answers.
-  * Calculate scores on the backend.
-  * View personal results.
-  
-Administration:
-  * View user accounts.
-  * Change account status.
-  * Assign user roles.
-  * Access Control
-  * Students cannot create quizzes.
-  * Teachers can manage only their own quizzes.
-  * Students cannot access other students' private results.
-  * Only authorized administrators can assign roles.
-  
-8. Non-Functional Requirements
-   * The interface should be simple and responsive.
-   * The backend should validate all requests.
-   * Protected APIs must enforce authentication and authorization.
-   * Sensitive information must not be exposed in responses.
-   * The application should be modular and maintainable.
-     
-9. Technology Stack
-  Frontend: React.js and TypeScript
-  Backend: FastAPI and Python
-  Database: SQLite
-  API: REST
-  Authentication: JWT bearer tokens
-  Version control: Git and GitHub
+* Provide secure user registration and login.
+* Allow students to attempt available quizzes.
+* Automatically calculate quiz scores.
+* Allow teachers to create, edit, publish, and manage their own quizzes.
+* Allow administrators to manage users and assign roles.
+* Demonstrate REST API integration, authentication, authorization, RBAC, and security scopes.
 
-11. Out of Scope
+## 5. Target Users
 
-The first version will not include AI, machine learning, live multiplayer, payments, chat, or complex analytics.
+### Student
 
-10. Success Criteria
+A student can view published quizzes, submit answers, and view personal results.
 
-The project is successful when users can log in, roles are enforced, teachers can publish quizzes, students can submit answers and view scores, and unauthorized API requests are rejected.
+### Teacher
 
-11. Constraints
+A teacher can create quizzes, manage questions, publish quizzes, and view results for their own quizzes.
 
-The application must be completed within the course timeline. The initial implementation will focus on multiple-choice quizzes and essential security features.
+### Administrator
+
+An administrator can view and manage user accounts, assign roles, and oversee the platform.
+
+## 6. Functional Scope
+
+### 6.1 Authentication
+
+* User registration and login.
+* Secure password storage.
+* Token-based authentication.
+* Logout and appropriate handling of expired tokens.
+
+### 6.2 Quiz Management
+
+* Teachers can create quizzes with titles and descriptions.
+* Teachers can add multiple-choice questions and answer options.
+* Teachers can identify the correct answer.
+* Teachers can edit, publish, and manage their own quizzes.
+
+### 6.3 Quiz Participation
+
+* Students can view published quizzes.
+* Students can submit answers to quiz questions.
+* The backend calculates the score.
+* Students can view their own submitted results.
+
+### 6.4 Administration
+
+* Administrators can view user accounts.
+* Administrators can activate or deactivate accounts.
+* Administrators can assign permitted user roles.
+
+### 6.5 Access Control
+
+* Students cannot create or modify quizzes.
+* Teachers cannot manage administrator accounts or assign roles.
+* Teachers can manage only their own quizzes.
+* Students can access only their own results.
+* Administrative actions require appropriate backend permissions.
+
+## 7. Non-Functional Requirements
+
+* The interface should be responsive and easy to use.
+* Passwords must not be stored in plain text.
+* Protected APIs must verify authentication and authorization.
+* Input data must be validated by the backend.
+* Error messages should be clear without exposing sensitive information.
+* The codebase should be modular and maintainable.
+
+## 8. Technology Stack
+
+* Frontend: React.js and TypeScript
+* Backend: FastAPI and Python
+* API style: REST
+* Authentication: OAuth2-compatible bearer token flow using JWT
+* Database: SQLite for the initial course-project implementation
+* Password hashing: A suitable password-hashing library
+* Version control: Git and GitHub
+
+## 9. Out of Scope
+
+The initial version will not include:
+
+* Artificial intelligence or machine learning.
+* Live multiplayer quizzes.
+* Payment systems.
+* Video calls or chat.
+* Complex analytics or recommendation systems.
+
+## 10. Success Criteria
+
+The project will be considered successful when:
+
+* Users can log in and receive valid authentication tokens.
+* Each role can access only its permitted features.
+* Teachers can create and publish quizzes.
+* Students can attempt published quizzes and view their own scores.
+* The backend calculates scores correctly.
+* Unauthorized requests are rejected.
+* The frontend communicates with the backend through REST APIs.
+
+## 11. Assumptions and Constraints
+
+* The application is developed as a course project.
+* The team has limited development time.
+* The first version uses multiple-choice questions.
+* Features will be kept small enough to implement, test, and document within the course timeline.
+
